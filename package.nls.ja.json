@@ -1,0 +1,6 @@
+{
+  "native-ascii-converter.letter-case": "Unicode文字列の大文字/小文字",
+  "native-ascii-converter.comment-conversion": "コメント行も変換する",
+  "native-ascii-converter.auto-conversion-on-save": "ファイルを保存するときに自動変換を行う",
+  "native-ascii-converter.auto-conversion-on-activate": "ファイルがアクティブになるときに自動変換を行う"
+}
