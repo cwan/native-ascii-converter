@@ -2,6 +2,8 @@
 
 VS Code extension that converts characters with Unicode escapes or vice versa. The same as ['native2ascii' tool of JDK](https://docs.oracle.com/javase/8/docs/technotes/tools/windows/native2ascii.html).
 
+[native-ascii-converter - Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=cwan.native-ascii-converter)
+
 ## Features
 
 * Commands (manual execution):
