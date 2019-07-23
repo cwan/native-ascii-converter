@@ -80,7 +80,7 @@ const registerListeners = () => {
   // アクティブ時の自動変換
   if (utils.getConfigParameters('auto-conversion-on-activate')) {
     vscode.window.onDidChangeActiveTextEditor(textEditor => {
-      if (utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
+      if (vscode.window.activeTextEditor && utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
         decorate(convertAsciiToNative)();
       }
     });
