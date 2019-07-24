@@ -13,12 +13,12 @@ export function activate(context: vscode.ExtensionContext) {
 
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
-      'extension.convertNativeToAscii', decorate(convertNativeToAscii))
+      'extension.convertNativeToAscii', handle(convertNativeToAscii))
   );
 
   context.subscriptions.push(
     vscode.commands.registerTextEditorCommand(
-      'extension.convertAsciiToNative', decorate(convertAsciiToNative))
+      'extension.convertAsciiToNative', handle(convertAsciiToNative))
   );
 
   registerListeners();
@@ -27,9 +27,9 @@ export function activate(context: vscode.ExtensionContext) {
 export function deactivate() {}
 
 // アクティブドキュメントの内容をUnicodeエンコード変換する
-const convertNativeToAscii = () => {
-  const lowerCase = utils.getConfigParameters('letter-case') === 'Lower case';
-  const commentConversion = utils.getConfigParameters('comment-conversion');
+const convertNativeToAscii = () : void => {
+  const lowerCase = utils.getConfigParameter('letter-case') === 'Lower case';
+  const commentConversion = utils.getConfigParameter('comment-conversion');
 
   const newText = utils.getFullText()
     .split(/\r?\n/g)
@@ -46,13 +46,13 @@ const convertNativeToAscii = () => {
 };
 
 // アクティブドキュメントの内容をUnicodeデコード変換する
-const convertAsciiToNative = () => {
+const convertAsciiToNative = () : void => {
   const newText = utils.asciiToNative(utils.getFullText());
   utils.setFullText(newText);
 };
 
 // 変換処理関数をラップして、エラーハンドリングを行う
-const decorate = (func : Function) => {
+const handle = (func : Function) => {
   return () => {
     try {
       func();
@@ -66,22 +66,22 @@ const decorate = (func : Function) => {
 };
 
 // テキストファイルイベントのリスナー登録
-const registerListeners = () => {
+const registerListeners = () : void => {
 
   // 保存時の自動変換
-  if (utils.getConfigParameters('auto-conversion-on-save')) {
+  if (utils.getConfigParameter('auto-conversion-on-save')) {
     vscode.workspace.onWillSaveTextDocument(event => {
       if (event.document.fileName.endsWith(FILE_EXTENSION)) {
-        decorate(convertNativeToAscii)();
+        handle(convertNativeToAscii)();
       }
     });
   }
 
   // アクティブ時の自動変換
-  if (utils.getConfigParameters('auto-conversion-on-activate')) {
+  if (utils.getConfigParameter('auto-conversion-on-activate')) {
     vscode.window.onDidChangeActiveTextEditor(textEditor => {
       if (vscode.window.activeTextEditor && utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
-        decorate(convertAsciiToNative)();
+        handle(convertAsciiToNative)();
       }
     });
   }
