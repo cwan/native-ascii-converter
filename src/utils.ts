@@ -26,7 +26,7 @@ export const nativeToAscii = (text : string, lowerCase : boolean = true) : strin
   return text.split('')
     .map(char => {
       if (char.charCodeAt(0) <= 127) {
-        // 半角文字はそのまま
+        // ASCII文字はそのまま
         return char;
       }
 
@@ -38,7 +38,7 @@ export const nativeToAscii = (text : string, lowerCase : boolean = true) : strin
 
 // Unicode形式からデコードする
 export const asciiToNative = (text : string) : string => {
-  return unescape(text.split('\\').join('%'));
+  return unescape(text.replace(/\\/g, '%'));
 };
 
 // アクティブテキストエディターを取得する
@@ -61,12 +61,12 @@ export const getDocument = () : vscode.TextDocument => {
 };
 
 // アクティブドキュメントの改行文字を取得する
-export const getEol = () => {
+export const getEol = () : string => {
   return getDocument().eol === vscode.EndOfLine.LF ? '\n' : '\r\n';
 };
 
 // 設定パラメータを取得する
-export const getConfigParameters = (name : string) => {
+export const getConfigParameter = (name : string) : any => {
   const config = vscode.workspace.getConfiguration('native-ascii-converter');
   return config.get(name);
 };
