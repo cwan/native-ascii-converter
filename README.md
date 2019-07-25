@@ -14,8 +14,8 @@ VS Code extension that converts characters with Unicode escapes or vice versa. T
     + `Convert characters: Ascii to Native` - Convert all Unicode escapes characters in the active text document with native characters.
 
 * Options:
-    + If you activate a text file which extension is '.properties', the command "Native to Ascii" invoked automatically.
-    + If you save a text file which extension is '.properties', the command "Ascii to Native" invoked automatically.
+    + If you activate a text file which extension is '.properties', the command "Ascii to Native" invoked automatically.
+    + If you save a text file which extension is '.properties', the command "Native to Ascii" invoked automatically.
     + You can exclude the comment lines (that start with '#') in converting "Native to Ascii".
 
 ![feature](images/feature.gif)

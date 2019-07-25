@@ -14,8 +14,8 @@
     + `Convert characters: Ascii to Native` - アクティブテキストドキュメント内の全てのUnicodeエスケープ文字を元のネイティブ文字に戻します。
 
 * オプション
-    + 拡張子が'.properties'のテキストファイルがアクティブになったときに、"Native to Ascii"変換を自動的に実行させることができます。
-    + 拡張子が'.properties'のテキストファイルを保存したときに、"Ascii to Native"変換を自動的に実行させることができます。
+    + 拡張子が'.properties'のテキストファイルがアクティブになったときに、"Ascii to Native"変換を自動的に実行させることができます。
+    + 拡張子が'.properties'のテキストファイルを保存したときに、"Native to Ascii"変換を自動的に実行させることができます。
     + コメント行（'#'で始まる行）で、"Native to Ascii"変換を行わないようにすることができます。
 
 ![feature](images/feature.gif)
