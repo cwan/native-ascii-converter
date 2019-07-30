@@ -25,8 +25,8 @@
 この拡張機能には、以下の設定があります。
 
 * `native-ascii-converter.letter-case`: Unicodeエスケープしたときの大文字/小文字
-    + `Lower case` : 小文字（デフォルト）
-    + `Upper case`: 大文字
+    + `"Lower case"` : 小文字（デフォルト）
+    + `"Upper case"`: 大文字
 * `native-ascii-converter.comment-conversion`: コメント行の変換を行うかどうか
     + `true`: 変換を行う（デフォルト）
     + `false`: 変換を行わない

@@ -69,20 +69,19 @@ const handle = (func : Function) => {
 const registerListeners = () : void => {
 
   // 保存時の自動変換
-  if (utils.getConfigParameter('auto-conversion-on-save')) {
-    vscode.workspace.onWillSaveTextDocument(event => {
-      if (event.document.fileName.endsWith(FILE_EXTENSION)) {
-        handle(convertNativeToAscii)();
-      }
-    });
-  }
+  vscode.workspace.onWillSaveTextDocument(event => {
+    if (utils.getConfigParameter('auto-conversion-on-save')
+        && event.document.fileName.endsWith(FILE_EXTENSION)) {
+      handle(convertNativeToAscii)();
+    }
+  });
 
   // アクティブ時の自動変換
-  if (utils.getConfigParameter('auto-conversion-on-activate')) {
-    vscode.window.onDidChangeActiveTextEditor(textEditor => {
-      if (vscode.window.activeTextEditor && utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
-        handle(convertAsciiToNative)();
-      }
-    });
-  }
+  vscode.window.onDidChangeActiveTextEditor(textEditor => {
+    if (vscode.window.activeTextEditor
+        && utils.getConfigParameter('auto-conversion-on-activate')
+        && utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
+      handle(convertAsciiToNative)();
+    }
+  });
 };
