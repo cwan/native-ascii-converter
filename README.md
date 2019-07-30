@@ -25,8 +25,8 @@ VS Code extension that converts characters with Unicode escapes or vice versa. T
 This extension contributes the following settings:
 
 * `native-ascii-converter.letter-case`: Letter case in Unicode characters
-    + `Lower case` (default)
-    + `Upper case`
+    + `"Lower case"` (default)
+    + `"Upper case"`
 * `native-ascii-converter.comment-conversion`: Unicode conversion of the comment is carried out
     + `true`: carried out (default)
     + `false`: not carried out
