@@ -25,12 +25,16 @@ export const nativeToAscii = (text : string, lowerCase : boolean = true) : strin
 
   return text.split('')
     .map(char => {
-      if (char.charCodeAt(0) <= 127) {
+      const code = char.charCodeAt(0);
+
+      if (code <= 0x7f) {
         // ASCII文字はそのまま
         return char;
       }
 
-      const escaped = escape(char).replace('%', '\\');
+      // 8ビット文字は0パディングする
+      const escaped = escape(char).replace('%', code <= 0xff ? '\\u00' : '\\');
+
       return lowerCase ? escaped.toLocaleLowerCase() : escaped;
     })
     .join('');

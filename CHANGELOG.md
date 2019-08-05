@@ -1,9 +1,22 @@
 # Change Log
 
-All notable changes to the "native-ascii-converter" extension will be documented in this file.
+## [1.0.5] - 2019-08-05
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
+* [Fix: Wrong codec (0xA0-0xFF)](https://github.com/cwan/native-ascii-converter/issues/7)
 
-## [Unreleased]
+## [1.0.4] - 2019-07-30
 
-- Initial release
+* [Fix: The auto conversion settings is not reflected until restart](https://github.com/cwan/native-ascii-converter/issues/5)
+* Modify the documents
+
+## [1.0.3] - 2019-07-25
+
+* Modify the documents
+
+## [1.0.2] - 2019-07-23
+
+* [Fix: An error log in auto conversion](https://github.com/cwan/native-ascii-converter/issues/2)
+
+## [1.0.0] - 2019-07-23
+
+* Initial release
