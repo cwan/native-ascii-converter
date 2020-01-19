@@ -69,6 +69,18 @@ export const getEol = () : string => {
   return getDocument().eol === vscode.EndOfLine.LF ? '\n' : '\r\n';
 };
 
+// アクティブドキュメントがpropertiesファイルか
+export const isActiveDocumentPropertiesFile = () : boolean => {
+  const useFilesAssociations = getConfigParameter('use-files.associations');
+  const document = getDocument();
+
+  if (useFilesAssociations) {
+    return document.languageId === 'properties';
+  } else {
+    return document.fileName.endsWith('.properties');
+  }
+};
+
 // 設定パラメータを取得する
 export const getConfigParameter = (name : string) : any => {
   const config = vscode.workspace.getConfiguration('native-ascii-converter');

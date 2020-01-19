@@ -14,8 +14,8 @@ VS Code extension that converts characters with Unicode escapes or vice versa. T
     + `Convert characters: Ascii to Native` - Convert all Unicode escapes characters in the active text document with native characters.
 
 * Options:
-    + If you activate a text file which extension is '.properties', the command "Ascii to Native" invoked automatically.
-    + If you save a text file which extension is '.properties', the command "Native to Ascii" invoked automatically.
+    + If you activate a properties, the command "Ascii to Native" invoked automatically.
+    + If you save a properties file, the command "Native to Ascii" invoked automatically.
     + You can exclude the comment lines (that start with '#') in converting "Native to Ascii".
 
 ![feature](images/feature.gif)
@@ -30,9 +30,23 @@ This extension contributes the following settings:
 * `native-ascii-converter.comment-conversion`: Unicode conversion of the comment is carried out
     + `true`: carried out (default)
     + `false`: not carried out
-* `native-ascii-converter.auto-conversion-on-save`: Convert automatically when the file (*.properties) is saved
+* `native-ascii-converter.auto-conversion-on-save`: Convert automatically when a properties file is saved
     + `true`: effective
     + `false`: ineffective (default)
-* `native-ascii-converter.auto-conversion-on-activate`: Convert automatically when the file (*.properties)  is activated
+* `native-ascii-converter.auto-conversion-on-activate`: Convert automatically when a properties file is activated
     + `true`: effective
     + `false`: ineffective (default)
+* `native-ascii-converter.use-files.associations`: Use "files.associations" in the settings.json for the automatic conversions
+    + `true`: Use "files.associations" in the settings.json
+    + `false`: Not use "files.associations". A file which name ends with only "*.properties" is converted automatically. (default)
+
+If `native-ascii-converter.use-files.associations` is` true` and the settings.json is set as follows, the file which name matches `*.properties` or `*.properties.prod` is converted automatically.
+
+```json
+{
+  "files.associations": {
+    "*.properties": "properties",
+    "*.properties.prod": "properties"
+  }
+}
+```

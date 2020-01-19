@@ -1,6 +1,7 @@
 {
   "native-ascii-converter.letter-case": "Letter case in Unicode characters",
   "native-ascii-converter.comment-conversion": "Unicode conversion of the comment is carried out",
-  "native-ascii-converter.auto-conversion-on-save": "Convert automatically when the file (*.properties) is saved",
-  "native-ascii-converter.auto-conversion-on-activate": "Convert automatically when the file (*.properties)  is activated"
+  "native-ascii-converter.auto-conversion-on-save": "Convert automatically when the properties file is saved",
+  "native-ascii-converter.auto-conversion-on-activate": "Convert automatically when the properties file is activated",
+  "native-ascii-converter.use-files.associations": "Use \"files.associations\" in the settings.json for the automatic conversions"
 }
