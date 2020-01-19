@@ -5,8 +5,6 @@ const DISPLAY_NAME = 'Native-ASCII Converter';
 
 const COMMENT_PREFIX = '#';
 
-const FILE_EXTENSION = '.properties';
-
 export function activate(context: vscode.ExtensionContext) {
 
   // テキストエディターを開いてるときときに実行可能なコマンドを登録
@@ -71,16 +69,17 @@ const registerListeners = () : void => {
   // 保存時の自動変換
   vscode.workspace.onWillSaveTextDocument(event => {
     if (utils.getConfigParameter('auto-conversion-on-save')
-        && event.document.fileName.endsWith(FILE_EXTENSION)) {
+        && utils.isActiveDocumentPropertiesFile()) {
       handle(convertNativeToAscii)();
     }
   });
 
   // アクティブ時の自動変換
   vscode.window.onDidChangeActiveTextEditor(textEditor => {
+
     if (vscode.window.activeTextEditor
         && utils.getConfigParameter('auto-conversion-on-activate')
-        && utils.getDocument().fileName.endsWith(FILE_EXTENSION)) {
+        && utils.isActiveDocumentPropertiesFile()) {
       handle(convertAsciiToNative)();
     }
   });

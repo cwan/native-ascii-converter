@@ -1,6 +1,7 @@
 {
   "native-ascii-converter.letter-case": "Unicode文字列の大文字/小文字",
   "native-ascii-converter.comment-conversion": "コメント行も変換する",
-  "native-ascii-converter.auto-conversion-on-save": "ファイル (*.properties) を保存するときに自動変換を行う",
-  "native-ascii-converter.auto-conversion-on-activate": "ファイル (*.properties) がアクティブになるときに自動変換を行う"
+  "native-ascii-converter.auto-conversion-on-save": "propertiesファイルを保存するときに自動変換を行う",
+  "native-ascii-converter.auto-conversion-on-activate": "propertiesファイルがアクティブになるときに自動変換を行う",
+  "native-ascii-converter.use-files.associations": "自動変換の際にsettings.jsonの\"files.associations\"を適用する"
 }

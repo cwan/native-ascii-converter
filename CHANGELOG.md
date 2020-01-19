@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.6] - 2020-01-19
+
+* [Fix: AutoConversionOnActivate can't work, when suffix isn't "properties"](https://github.com/cwan/native-ascii-converter/issues/9)
+
 ## [1.0.5] - 2019-08-05
 
 * [Fix: Wrong codec (0xA0-0xFF)](https://github.com/cwan/native-ascii-converter/issues/7)
