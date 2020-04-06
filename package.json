@@ -3,7 +3,7 @@
 	"displayName": "Native-ASCII Converter",
 	"description": "Convert characters with Unicode escapes or vice versa. The same as 'native2ascii' tool of JDK.",
 	"publisher": "cwan",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"engines": {
 		"vscode": "^1.29.0"
 	},
@@ -79,14 +79,14 @@
 	},
 	"devDependencies": {
 		"@types/glob": "^7.1.1",
-		"@types/mocha": "^5.2.6",
+		"@types/mocha": "^5.2.7",
 		"@types/node": "^10.12.21",
 		"@types/vscode": "^1.29.0",
 		"glob": "^7.1.4",
-		"mocha": "^6.1.4",
+		"mocha": "^6.2.3",
+		"tslint": "^5.20.1",
 		"typescript": "^3.3.1",
-		"tslint": "^5.12.1",
-		"vscode-test": "^1.0.0-next.0"
+		"vscode-test": "^1.3.0"
 	},
 	"license": "MIT",
 	"bugs": {
