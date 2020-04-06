@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.7] - 2020-04-06
+
+* [Fix: Prototype pollution in minimist](https://github.com/cwan/native-ascii-converter/pull/11)
+
 ## [1.0.6] - 2020-01-19
 
 * [Fix: AutoConversionOnActivate can't work, when suffix isn't "properties"](https://github.com/cwan/native-ascii-converter/issues/9)
