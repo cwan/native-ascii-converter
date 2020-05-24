@@ -1,5 +1,9 @@
 # Change Log
 
+## [1.0.8] - 2020-05-24
+
+* [Fix: backslash conversion in Ascii-to-Native](https://github.com/cwan/native-ascii-converter/pull/12)
+
 ## [1.0.7] - 2020-04-06
 
 * [Fix: Prototype pollution in minimist](https://github.com/cwan/native-ascii-converter/pull/11)
