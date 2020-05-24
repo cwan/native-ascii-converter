@@ -42,7 +42,7 @@ export const nativeToAscii = (text : string, lowerCase : boolean = true) : strin
 
 // Unicode形式からデコードする
 export const asciiToNative = (text : string) : string => {
-  return unescape(text.replace(/\\/g, '%'));
+  return unescape(text.replace(/\\(?=u[0-9A-Za-z])/g, '%'));
 };
 
 // アクティブテキストエディターを取得する

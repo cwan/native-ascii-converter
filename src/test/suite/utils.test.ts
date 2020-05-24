@@ -31,6 +31,14 @@ const dataList: Array<{native: string, ascii: string, upperCase?: boolean}> = [
     native: '¡ ÿ',
     ascii: '\\u00a1 \\u00ff'
   },
+  {
+    native: '\\',
+    ascii: '\\'
+  },
+  {
+    native: '\\/mnt\\/record\\',
+    ascii: '\\/mnt\\/record\\'
+  }
 ];
 
 suite('utils Test Suite', () => {
