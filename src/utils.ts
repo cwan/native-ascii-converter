@@ -6,6 +6,16 @@ export const getFullText = () : string => {
   return getDocument().getText();
 };
 
+// Get the currently selected text
+export const getSelectedText = () : string => {
+  return getDocument().getText(getSelectionRange());
+};
+
+// Get either the text of the entire file or selected text based on context
+export const getText = () : string => {
+  return isTextSelected() ? getSelectedText() : getFullText();
+};
+
 // アクティブテキストファイルの全内容を置き換える
 export const setFullText = (newText : string) : void => {
   
@@ -18,6 +28,27 @@ export const setFullText = (newText : string) : void => {
 
   // 中途半端に選択された状態になるので、選択を解除する
   editor.selection = new vscode.Selection(0, 0, 0, 0);
+};
+
+// Replace the content of the currently selected text
+export const setSelectedText = (newText : string) : void => {
+  const document = getDocument();
+  const selectionRange = document.validateRange(getSelectionRange());
+
+  const editor = getEditor();
+  editor.edit(builder => builder.replace(selectionRange, newText));
+
+  // 中途半端に選択された状態になるので、選択を解除する
+  editor.selection = new vscode.Selection(0, 0, 0, 0);
+};
+
+// Either replace text of the entire file or selected text based on context
+export const setText = (newText : string) : void => {
+  if (isTextSelected()) {
+    setSelectedText(newText);
+  } else {
+    setFullText(newText);
+  }
 };
 
 // Unicode形式にエンコードする
@@ -54,6 +85,12 @@ export const getEditor = () : vscode.TextEditor => {
   throw new Error('Text editor is not active.');
 };
 
+export const getSelectionRange = () : vscode.Range => {
+  const selection =  getEditor().selection;
+
+  return new vscode.Range(selection.start.line, selection.start.character, selection.end.line, selection.end.character);
+};
+
 // アクティブテキストエディターのドキュメントを取得する
 export const getDocument = () : vscode.TextDocument => {
   const editor = getEditor();
@@ -80,6 +117,10 @@ export const isActiveDocumentPropertiesFile = () : boolean => {
     return document.fileName.endsWith('.properties');
   }
 };
+
+export const isTextSelected = () : boolean => {
+  return !getEditor().selection.isEmpty;
+}
 
 // 設定パラメータを取得する
 export const getConfigParameter = (name : string) : any => {
