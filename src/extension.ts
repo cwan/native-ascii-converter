@@ -29,7 +29,7 @@ const convertNativeToAscii = () : void => {
   const lowerCase = utils.getConfigParameter('letter-case') === 'Lower case';
   const commentConversion = utils.getConfigParameter('comment-conversion');
 
-  const newText = utils.getFullText()
+  const newText = utils.getText()
     .split(/\r?\n/g)
     .map(line => {
       if (!commentConversion && line.startsWith(COMMENT_PREFIX)) {
@@ -40,13 +40,13 @@ const convertNativeToAscii = () : void => {
     })
     .join(utils.getEol());
 
-  utils.setFullText(newText);
+  utils.setText(newText);
 };
 
 // アクティブドキュメントの内容をUnicodeデコード変換する
 const convertAsciiToNative = () : void => {
-  const newText = utils.asciiToNative(utils.getFullText());
-  utils.setFullText(newText);
+  const newText = utils.asciiToNative(utils.getText());
+  utils.setText(newText);
 };
 
 // 変換処理関数をラップして、エラーハンドリングを行う
